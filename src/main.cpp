@@ -17,7 +17,7 @@ int main() {
     bn::fixed speed = 2.5;
 
     bn::fixed dy = 0;
-    bn::fixed gravity = .03;
+    bn::fixed gravity = .02;
 
     bn::fixed jump_strength = 1.3;
 
@@ -28,7 +28,7 @@ int main() {
         if(bn::keypad::right_held()) {
             dot.set_x(dot.x() + speed);
         }
-        if(bn::keypad::a_pressed()) {
+        if(bn::keypad::up_pressed()) {
             dy -= jump_strength;
         }
 

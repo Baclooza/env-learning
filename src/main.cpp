@@ -28,7 +28,7 @@ int main() {
         if(bn::keypad::right_held()) {
             dot.set_x(dot.x() + speed);
         }
-        if(bn::keypad::up_pressed()) {
+        if(bn::keypad::a_pressed()) {
             dy -= jump_strength;
         }
 

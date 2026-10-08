@@ -4,11 +4,14 @@
 #include <bn_sprite_ptr.h>
 
 #include "bn_sprite_items_bun.h"
+#include "bn_sprite_items_lil_guy.h"
 
 #define FLOOR (80 - 8)
 
 int main() {
     bn::core::init();
+
+    bn::sprite_ptr lil_guy = bn::sprite_items::lil_guy.create_sprite(0, 0);
 
     bn::backdrop::set_color(bn::color(15, 0, 15));
 
@@ -28,7 +31,7 @@ int main() {
         if(bn::keypad::right_held()) {
             dot.set_x(dot.x() + speed);
         }
-        if(bn::keypad::a_pressed()) {
+        if(bn::keypad::a_pressed() && dot.y() == FLOOR) {
             dy -= jump_strength;
         }
 
@@ -40,6 +43,8 @@ int main() {
             dot.set_y(FLOOR);
             dy = 0;
         }
+
+        
         bn::core::update();
     }
 }
